@@ -1,6 +1,7 @@
 const directories = [
     "index",
-    "login"
+    "login",
+    "top"
 ];
 
 const mix = require('laravel-mix');
@@ -17,6 +18,10 @@ mix.webpackConfig({
         minimize: true
     },
     plugins: [
+        // Vueの機能フラグを設定するためのDefinePlugin
+        new (require('webpack')).DefinePlugin({
+            '__VUE_PROD_HYDRATION_MISMATCH_DETAILS__': JSON.stringify(false)  // オフにする場合
+        }),
         new CompressionPlugin({
             test: /\.(css)|(js)$/,
             compressionOptions: {
