@@ -42,7 +42,7 @@ mix.webpackConfig({
 });
 
 for (let i = 0; i < directories.length; i++) {
-    mix.sass('resources/sass/' + directories[i] + '/index.scss', 'public/css/build/' + directories[i])
+    mix.sass("resources/sass/" + directories[i] + "/index.scss", "public/css/build/" + directories[i] + "/index.css")
         .js("resources/js/" + directories[i] + "/*.js", "public/js/build/" + directories[i] + "/index.js").vue({
             options: {
                 compilerOptions: {
